@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>数组定义方式array</title>
+</head>
+<body>
+<script type="text/javascript">
+	/*创建数组的基本形式*/
+	/* 
+	1.使用Array构造函数
+	*/
+		// var colors = new Array();
+		// console.log(colors);
+	/*
+	
+	2.如果预先知道数组要保存的项目数量，也可以给构造函数传递该数量，而数量会自动变成length属性的值
+	*/
+		// var colors = new Array(20);
+		// console.log(colors);
+	/*
+	
+	3.也可以向Array构造函数传递数组中应该包含的项
+	*/
+		// var colors = new Array("red","blue","green");
+		// console.log(colors);
+	/*
+	
+	4.给构造函数传递一个值也可以创建数组
+	*/
+		// var colors = new Array(3);//创建一个包含三项的数组
+		// var names = new Array("Green");//创建一个包含一项，即字符串“Green”数组的值
+		// console.log(colors,names);
+	/*
+	
+	5.在使用Array构造函数时也可以省略new操作符
+	*/
+		// var colors = Array(3);
+		// var names = Array("Green");
+		// console.log(colors,names);
+	/*
+	6.创建数组的基本方式  使用数组字面量表示法 数组字面量由一对包含数组项的方括号表示，
+	多个数组项之间逗号隔开
+	*/
+		// var colors = ['red','blue','green'];//创建一个包含3个字符串的数组
+		// var names = [];//创建一个空数组
+		// var values = [1,2,3,];//这样会创建一个包含2或3项的数组
+		// var options = [,,,,];//	这样会创建一个包含5或6项的数组
+		// console.log(colors,names,values,options);
+	/*
+	7.在读取和设置数组的值时，要使用方括号并提供相应值的基于0的数字索引
+	*/
+		// var colors = ["res","blue","green"];//定义一个字符串数组
+		// alert(colors[0]);//显示第一项
+		// colors[2] = "blank";//修改第三项
+		// colors[3] = "brown";//新增第四项
+		// console.log(colors);
+	/*
+	8.数组的项数保存在其length属性中，这个属性始终会返回0或更大的值
+	*/
+		// var colors = ["red","blue","green"];//创建一个包含3个字符串的数组
+		// var names = [];//创建一个空数组
+		// console.log(colors.length);//3
+		// console.log(names.length);//0
+	/*
+	9.数组的length属性很有特点  不是只读  因此通过这个属性  可以从
+	数组的末尾移除项或像数组中添加新项
+	如果将其length属性设置为大于数组项数的值，则新增的每一项都会取得undefined的值
+	*/
+		// var colors = ["red","blue","green"];//创建一个包含3个字符串的数组
+		// colors.length = 2;
+		// console.log(colors[2]);//undefined
+	/*
+	10.在此，虽然colors数组包含3个项，但它把length属性设置成了4，这个数组不存在位置3
+	所以访问这个位置的值就得到了特殊值undefined，利用length属性也可以方便的在数组末尾添加新项
+	*/
+		var colors = ["red","blue","green"];//创建一个包含3个字符串的数组
+		colors[colors.length] = "black";//（在位置3）添加一种颜色
+		colors[colors.length] = "brown";//（在位置4）再添加一种颜色
+		console.log(colors);
+		
+</script>
+</body>
+</html>

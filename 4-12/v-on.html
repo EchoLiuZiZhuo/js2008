@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-on指令绑定事件监听器</title>
+	</head>
+	<body>
+		<div id="app">
+			<button type="button">点击1</button>
+			<button type="button" v-on:click="hello">点击2</button>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="../vue2.6.12.js"></script>
+<script type="text/javascript">
+	new Vue({
+		el:"#app",
+		//methods方法
+		methods:{
+			//hello方法名
+			hello(){
+				alert("hello")
+			}
+		}
+	})
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+    <script src="../2008/jquery.js"></script>
+    <script>
+
+        $.ajax({
+        url:"http://vue.api.comcto.com/api/password1.php",
+        type:"get",
+        async:false,//关闭异步
+        success:function(data){
+            console.log("第1位密码：",data);
+        }
+   })
+
+   $.ajax({
+        url:"http://vue.api.comcto.com/api/password2.php",
+        type:"get",
+        async:false,
+        success:function(data){
+            console.log("第2位密码：",data);
+        }
+   })
+
+    </script>
+</body>
+</html>

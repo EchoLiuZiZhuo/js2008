@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<h1>图书管理</h1>
+			<br>
+			编号：<input v-model="id">
+			名称：<input v-model="name">
+			<button v-on:click="create()">提交</button>
+			<table border="1" cellspacing="" cellpadding="">
+				<tr>
+					<td>编号</td>
+					<td>名称</td>
+					<td>日期</td>
+					<td>操作</td>
+				</tr>
+				<tr  v-for="item in booksInfo">
+					<td>{{item.id}}</td>
+					<td>{{item.name}}</td>
+					<td>{{item.time}}</td>
+					<td>
+						<a href="javascript:;" v-on:click="del(item.id)">删除</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="../axios0.21.1.min.js"></script>
+<script type="text/javascript" src="../vue2.6.12.js"></script>
+<script type="text/javascript">
+	new Vue({
+		el:"#app",
+		data:{
+			id:"",
+			name:"",
+			booksInfo:[],
+		},
+		methods:{
+			//添加
+			create(){
+				//定义一个空对象
+				let books = {}
+				books.id = this.id
+				books.name = this.name
+				this.booksInfo.push(books)
+			},
+			
+			//删除
+			del(id){
+				let delInfo = this.booksInfo.findIndex(function(info){
+					return id==info.id
+				})
+				// console.log(delInfo);
+				this.booksInfo.splice(delInfo,1)
+			}
+		},
+		
+		
+		created:function(){
+			let self = this
+			//通过axios从接口调用数据
+			axios.get("http://vue.api.comcto.com/api/books.php").then(function(res){
+				for(let i=0;i<res.data.length;i++) {
+					self.booksInfo.push(res.data[i])
+				}
+				// console.log(self.booksInfo);
+			})
+		}
+	})
+</script>

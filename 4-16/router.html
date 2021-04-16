@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>
+            <!-- 使用router-link组件来导航 -->
+            <!-- 通过传入to属性指定链接 -->
+            <!-- router-link默认会被渲染成一个<a>标签 -->
+            <router-link to="/foo">Go to Foo 第一条</router-link>  
+            <hr>
+            <router-link to="/bar">Go to Bar 第二条</router-link>
+        </p>
+        <!-- 路由出口 -->
+        <!-- 路由匹配到的组件将渲染在这里 -->
+        <router-view></router-view>
+    </div>
+</body>
+</html>
+<script src="../vue2.6.12.min.js"></script>
+<script src="../vue-router3.5.1.js"></script>
+<script>
+
+
+    //定义两个组件
+    const Foo = {template:'<div>第一条</div>'}
+    const Bar = {template:'<div>第二条</div>'}
+
+    //定义路由
+    const routesss = [
+        {path:'/foo',component:Foo},
+        {path:'/bar',component:Bar}
+    ]
+
+
+    //实例化路由
+    const routera = new VueRouter({
+        routes:routesss //缩写
+    })
+
+
+    new Vue({
+        el:"#app",
+        router:routera//直接调用放在组件里面的路由
+    })
+</script>

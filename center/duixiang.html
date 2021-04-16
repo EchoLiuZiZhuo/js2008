@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// //属性简写
+			// let obj1 = {name:"张脉",age:"18",sex:"女"}
+			// console.log(obj1);
+			
+			
+			// //方法简写1
+			// let say = ()=>{return "刘子卓是傻蛋"}
+			// let obj2 = {name:"刘子卓",age:"48",sex:"男",say}
+			// console.log(obj2.name);
+			// console.log(obj2.age);
+			// console.log(obj2.say());
+			
+			
+			// //方法简写2
+			// //原写法
+			// let obj0 = {
+			// 	say:function(){
+			// 		console.log(0000);
+			// 	}
+			// }
+
+			// //现优化写法
+			// let obj1 = {
+			// 	say(){
+			// 		console.log(1111);
+			// 	}
+			// }
+			// obj0.say()
+			// obj1.say()
+			
+			
+			// //属性表达式
+			// let obj = {}
+			
+			// // //方式1
+			// // let result = obj.foo = "张脉";
+			// // console.log(result);
+			
+			// //方式2  +号拼接
+			// obj["a"+"bc"] = 123;
+			// console.log(obj.abc);
+			
+			
+			// //方法表达式
+			// let obj = {
+			// 	['h'+'ello'](){
+			// 		return 'hi';
+			// 	}
+			// }
+			// console.log(obj.hello);
+			
+			
+			// //扩展运算符...用于取出参数对象（数组、包装对象...）的所有可枚举（遍历）属性，拷贝到当前对象之中
+			// let person = {
+			// 	name:"张脉",
+			// 	age:11,
+			// 	sex:"男"
+			// }
+			// console.log(person);
+			// //将对象person中的所有可枚举属性拷贝到p1中
+			// let p1 = {...person}
+			// console.log(p1);
+			
+			// let arr1 = [1,22,33]
+			// let obj1 = {...arr1}
+			// console.log(arr1);
+			// console.log(obj1);
+			
+			// //如果扩展运算符后面不是对象，则会自动将其转换为对象
+			// console.log({...'hello'});//{0: "h", 1: "e", 2: "l", 3: "l", 4: "o"}
+			// console.log({...1});//{}
+			// console.log({...true})//{}
+			// console.log({...undefined})//{}
+			// console.log({...null})//{}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

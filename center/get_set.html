@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>get和set方法</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//访问器get与修改器set 读属性时触发get方法，写属性时触发set方法
+			let obj1 = {
+				name:"张脉",
+				age:18,
+				get name(){
+					console.log("正在读取name属性");
+				},
+				set name(v){
+					console.log("新值为",v)
+				}
+			}
+			obj1.name
+			obj1.name = "刘子卓"
+			
+		</script>
+	</body>
+</html>

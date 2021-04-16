@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>axios接口</title>
+	</head>
+	<body>
+		<div id="app">
+			<button type="button" v-on:click="getList">Axios获取数据</button>
+			<ul>
+				<!-- 循环数据 -->
+				<li v-for="item in stu">
+					ID:{{item.id}} - Name:{{item.name}} - Sex:{{item.sex}}
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="../vue2.6.12.js"></script>
+<script type="text/javascript" src="../axios0.21.1.min.js"></script>
+<script type="text/javascript">
+	//使用axios 请求后端接口，并使用v-for循环输出
+	new Vue({
+		el:"#app",
+		data:{
+			stu:[]//定义一个空数组
+		},
+		methods:{
+			getList(){
+				const self = this//将当前作用域的对象赋值给一个变量
+				console.log(this);
+				//用get提交方式访问线上文件     then方法异步执行接收数据  提高效率
+				axios.get("http://vue.api.comcto.com/api/list.php").then(function(d){
+					console.log(d);//打印接收到的数据
+					self.stu = d.data//将数据赋值给之前定义的空数组
+				})
+			}
+		}
+	})
+</script>

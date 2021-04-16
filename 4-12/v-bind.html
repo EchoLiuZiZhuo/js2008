@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-bind指令绑定属性</title>
+	</head>
+	<body>
+		<div id="app">
+			<img v-bind:src="haha" v-bind:title="tit">
+		</div>
+		
+		<script type="text/javascript" src="../vue2.6.12.js"></script>
+		
+		<script type="text/javascript">
+			new Vue({
+				el:"#app",
+				data:{
+					haha:"../v2008/src/assets/logo.png",
+					tit:"好爱好爱你"
+				}
+			})
+		</script>
+	</body>
+</html>

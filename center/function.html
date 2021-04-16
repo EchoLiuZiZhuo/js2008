@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>函数声明，调用</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// // 函数声明
+		// function abc(){
+			
+		// }
+		// //调用
+		// abc();
+		
+		
+		// //函数表达式（匿名函数）
+		// var fun1 = function(){
+			
+		// }
+		// //调用
+		// fun1();
+		
+		// //function构造函数
+		// var fun1 = new Function("x","y","return x+y");
+		// var num = fun1(1,2)
+		// console.log(num);
+		
+		
+		/*函数声明*/
+		// //函数声明式创建函数调用函数
+		// function fun(){
+		// 	console.log("函数名生成函数");
+		// }
+		// fun()
+		
+		// //函数表达式&&函数字面量  创建函数调用函数
+		// var fun = function(){
+		// 	console.log("函数表达式生成函数成功");
+		// }
+		// fun()
+		
+		
+		// //构造函数方式创建函数调用函数
+		// var fun = new Function("a","b","c","return a+b+c");
+		// console.log(fun(1,2,3));
+		
+		// //匿名函数1创建函数并且调用函数
+		// (function(){
+		// 	console.log("匿名函数1");
+		// })()
+		
+		// //匿名函数2创建函数并且调用函数
+		// (function(){
+		// 	console.log("匿名函数2");
+		// }())
+		
+		
+		
+		
+		/*函数调用*/
+		// //将函数作为值返回
+		// function test1(){
+		// 	function test2(a,b){
+		// 		console.log(a+b);
+		// 	}
+		// 	return test2
+		// }
+		// var res = test1()
+		// res(1,2)
+		
+		
+		//函数作为参数传递
+		function test(add) {
+			add()
+		}
+		function test1(){
+			console.log('通过函数的调用函数成功');
+		}
+		test(test1)
+		
+		
+		
+	</script>
+</body>
+</html>	

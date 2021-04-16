@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//new加class构造函数
+			class Person{
+				//构造方法  实例化对象时会自动调用
+				constructor(name,age) {
+					this.name = name
+					this.age = age
+				}
+				
+				say(){
+					console.log(this.name,this.age);
+				}
+			}
+			let p1 = new Person("张脉",18)
+			console.log(p1.name);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 1.定义两个a标签。给他们绑定上点击事件绑定的login,reg是methods里面的方法 -->
+        <a href="" v-on:click.prevent="login">登录组件</a> 
+        <a href="" v-on:click.prevent="reg">注册组件</a>
+
+        <!-- 5.判断当前点击的超链接里面的方法为true还是false来做显示或隐藏 -->
+        <user-login v-if="isloginshow"></user-login>
+        <user-reg v-if="isregshow"></user-reg>
+    </div>
+</body>
+</html>
+<script src="../vue2.6.12.min.js"></script>
+<script src="../vue-router3.5.1.js"></script>
+<script>
+    //4.定义两个组件里面写好需要展示的内容
+    Vue.component("user-login",{
+        template:"<h1>登录</h1>"
+    })
+
+    Vue.component("user-reg",{
+        template:"<h1>注册</h1>"
+    })
+
+    new Vue({
+        el:"#app",
+        data:{
+            // 2.在data里面定义两个属性默认为false
+            isloginshow:false,
+            isregshow:false
+        },
+        methods:{
+            // 3.点击登录的时候登录为true，注册为false点击注册则是相反
+            login(){
+                this.isregshow = false
+                this.isloginshow = true
+            },
+            reg(){
+                this.isregshow = true
+                this.isloginshow = false
+            }
+
+        }
+    })
+</script>

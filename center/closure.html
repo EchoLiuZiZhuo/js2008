@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>闭包  自定义属性  函数声明，添加，删除属性方法，自定义函数枚举</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// //下面代码中，函数f1的返回值就是函数f2，由于函数f2可以读取函数f1的内部变量，所以就可以在外部获取函数f1的内部变量了
+		// function f1(){
+		// 	var n = 777
+		// 	function f2(){
+		// 		console.log(n);
+		// 	}
+		// 	return f2
+		// }
+		// var res = f1()
+		// res()
+		
+		// //下面的代码是函数声明，添加，删除的属性方法
+		// var obj = {};
+		// obj.name = "zhangmai";
+		// obj.age = 18;
+		// obj.say = function(){
+		// 	console.log("张脉");
+		// 	return "aaa";
+		// }
+		// delete obj.name;//删除
+		// console.log(obj);
+		// console.log(obj.say());//此时的结果是未定义  因为没有返回值
+		
+		
+		//枚举
+		//自定义属性
+		var obj1 = {}
+		obj1.name = "maimai"
+		
+		Object.defineProperty(obj1,"name",{
+			value:"zhangmai",
+			configurable:false,//是否被删除
+			writable:false,//是否被覆盖
+			enumrable:false,//是否被枚举
+		});
+		console.log(obj1);
+		delete obj1.name
+		
+		
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>对象的属性和方法</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*1.Object.getPrototypeOf()方法返回参数对象的原型，获取原型对象的标准方法*/
+		// var F = function(){};
+		// var f = new F();
+		// var result = Object.getPrototypeOf(f) === F.prototype
+		// console.log(result);//true
+		
+		
+		/*几种特殊对象的原型*/
+		// //1.空对象的原型是Object.prototype
+		// var result = Object.getPrototypeOf({}) === Object.prototype
+		// console.log(result);//true
+		
+		
+		// //2.Object.prototype的原型是null 
+		// var result = Object.getPrototypeOf(Object.prototype) === null
+		// console.log(result);//true
+		
+		
+		// //3.函数的原型是Function.prototype
+		// function f(){}
+		// var result = Object.getPrototypeOf(f) === Function.prototype
+		// console.log(result);//true
+		
+		
+		/*2.Object.setPrototypeOf()方法为参数对象设置原型，
+		返回该参数对象。它接收两个参数，第一个是现有对象，第二个是原型对象
+		*/
+	   //1.下面代码中，Object.setPrototypeOf方法将对象a的原型，设置为对象b，因此a可以共享b的属性。
+	   // var a = {};
+	   // var b = {x:1};
+	   // Object.setPrototypeOf(a,b);
+	   // Object.getPrototypeOf(a)===b//true
+	   // console.log(a.x)//1
+	   
+	   
+	   /*
+	   第一步，将一个空对象的原型设为构造函数的prototype属性（上例是F.prototype）；
+	   第二步，将构造函数内部的this绑定这个空对象，然后执行构造函数，
+	   使得定义在this上面的方法和属性（上例是this.foo），都转移到这个空对象上。
+	   */
+	  // //new命令可以使用Object.setPrototypeOf方法模拟。
+	  //  var F = function(){
+		 //   this.foo = 'bar';
+	  //  };
+	  //  var f = new F();
+	  //  var f = Object.setPrototypeOf({}, F.prototype);
+	  //  F.call(f);
+	  
+	  
+	  
+	  /*
+	  Object.create
+	  JavaScript 提供了Object.create()方法，用来满足这种需求。
+	  该方法接受一个对象作为参数，然后以它为原型，返回一个实例对象。
+	  该实例完全继承原型对象的属性。
+	  */
+	 // //原型对象
+	 // var A = {
+		//  print:function(){
+		// 	 console.log('hello');
+		//  }
+	 // };
+	 // //实例对象
+	 // var B = Object.create(A);
+	 // var AB = Object.getPrototypeOf(B) === A//true
+	 // var Aa = B.print()//hello
+	 // var Bb = B.print === A.print//true
+	 // console.log(Bb);
+	 //上面代码中，Object.create()方法以A对象为原型，生成了B对象。B继承了A的所有属性和方法。
+	 
+	 
+	 // //object.create()方法可以用下面代码代替
+	 // if(typeof Object.create != 'function') {
+		//  Object.create = function(obj) {
+		// 	 function F() {}
+		// 		 F.prototype = obj;
+		// 		 return new F();
+		// 	 }; 
+		// }
+	/*
+	上面代码表明，Object.create()方法的实质是新建一个空的构造函数F，
+	然后让F.prototype属性指向参数对象obj，最后返回一个F的实例，
+	从而实现让该实例继承obj的属性。
+	*/
+   
+   
+   
+   // //下面三种方式生成的新对象是等价的
+   // var obj1 = Object.create({});
+   // var obj2 = Object.create(Object.prototype);
+   // var obj3 = new Object();
+   // console.log(obj1);
+   // console.log(obj2);
+   // console.log(obj3);
+   
+   
+   //obj = function
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+		
+		
+		
+	 
+	 
+	 
+	   
+	   
+	   
+	   
+				
+	</script>
+</body>
+</html>

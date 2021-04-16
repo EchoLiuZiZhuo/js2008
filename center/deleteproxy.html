@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj1 = {
+            name:"张脉",
+            age:"11"
+        }
+
+        const pro = new Proxy(obj1,{
+            deleteProperty(target,property) {
+                delete target.property
+                alert("不可以删除",+property+"属性,因为你没有权限");
+            },
+			
+			defineProperty(target,property) {
+				Object.defineProperty(target,property,{})
+				console.log("不可以使用defineProperty给"+target+"添加"+property+"属性");
+			}
+        })
+		delete pro.age
+		
+
+		Object.defineProperty(pro,'aa',{
+			value:"张"
+		})
+		
+    </script>
+</body>
+</html>

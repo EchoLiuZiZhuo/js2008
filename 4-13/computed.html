@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<div>
+				<p>{{ message }}</p>
+				<p>{{ hello }}</p>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="../axios0.21.1.min.js"></script>
+<script type="text/javascript" src="../vue2.6.12.js"></script>
+<script type="text/javascript">
+	/*
+		在 Vue 中，computed 的属性可以被视为是 data 一样，
+		可以读取和设值，因此在 computed 中可以分成 getter（读取） 和 setter（设值），
+		一般情况下是没有 setter 的，computed 预设只有 getter ，
+		也就是只能读取，不能改变设值。
+	*/ 
+	new Vue({
+		el:"#app",
+		data:{
+			message:"H#e#l#l#o#W#o#r#d"
+		},
+		
+		methods:{
+			
+		},
+		
+		computed:{
+			hello(){
+				// console.log(this.message.split("#").reverse().join(""));
+				return this.message.split("#").reverse().join("")
+			}
+		}
+	})
+</script>

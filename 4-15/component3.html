@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>组件遍历</title>
+	</head>
+	<body>
+		<div id="app">
+			<array v-bind:blist="list"><array>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="../vue2.6.12.js"></script>
+<script type="text/javascript">
+	Vue.component("array",{
+		props:["blist"],
+		template:`<ul><li v-for='item in blist'>{{item.id}}--{{item.name}}</li></ul>`
+	})
+	
+	new Vue({
+		el:"#app",
+		data:{
+			list:[
+				{
+					id:123,
+					name:"张脉",
+				},
+				{
+					id:1234,
+					name:"刘子卓",
+				}
+			]
+		}
+	})
+</script>
+
+<script type="text/javascript">
+	
+
+/*
+        <!-- 调用一个容器 -->
+    <div id='app'>
+        <!-- 3.给定义的blist组件属性绑定上第2步生成的数据 -->
+        <array v-bind:blist='ina'></array> <!--调用组件-->
+    </div>
+    <script src="..ue2.6.12.js"></script>
+    <script>
+        //生成一个组件
+        Vue.component("array",{
+            props:['blist'],//2.通过props生成一个组件属性
+            //.通过template模块把blist给循环
+            template:`<ul>
+                <li v-for="info in blist">
+                    {{info.id}}--{{info.name}}
+                <>
+            </ul>`
+        })
+        new Vue({
+            el : "#app", //生成一个容器
+            data : {
+                //1.生成数据作为组件属性的属性值
+                ina:[
+                    {
+                        id: 1,
+                        name:'a1',
+                    },
+                    {
+                        id: 2,
+                        name:'a2',
+                    },
+                ]
+            }
+        })
+    </script>
+	*/
+   </script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>监听器</title>
+	</head>
+	<body>
+		<div id="app">
+			<p>
+				Ask a yes/no question
+				<input v-model="question">
+			</p>
+			<p>{{ answer }}</p>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="../axios0.21.1.min.js"></script>
+<script type="text/javascript" src="../vue2.6.12.js"></script>
+<script type="text/javascript">
+	new Vue({
+		el:"#app",
+		data:{
+			question:"",
+			answer:"输入一个字母测试今天的运气......"
+		},
+		watch:{
+			question(nv,ol) {
+				console.log(this);
+				let self = this
+				this.answer = "正在接收接口数据...."
+				//接收远程接口的数据   异步执行
+				axios.get("http://vue.api.comcto.com/api/password1.php").then(function(res){
+					console.log("接口返回的数据：",res.data);
+					if(res.data==1) {
+						self.answer = "不开心😃"
+					}else{
+						self.answer = "一点也不开心😃"
+					}
+				})
+			}
+		}
+	})
+</script>

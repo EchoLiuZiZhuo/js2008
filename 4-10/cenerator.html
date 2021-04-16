@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// //定义一个生成器对象
+			// function * hello2(){
+			// 	yield "张脉"
+			// 	yield "刘子卓"
+			// 	// return "脉脉"
+			// }
+			// const generator = hello2()
+			// console.log(generator.next());//返回的时迭代器对象 包含值 和 done（true|false）
+			// console.log(generator.next());
+			// console.log(generator.next());//如果有返回值就会将return后的作为value值  如果没有会undefined
+			
+			
+			
+			// let obj1 = {}
+			// console.log(obj1);
+			// console.log( Object.getPrototypeOf(obj1) )//返回指定对象的原型
+			
+			
+			
+			// //将生成器对象赋值给Iterator接口
+			// function * it(){
+			// 	yield '1'
+			// 	yield '2'
+			// 	yield '3'
+			// 	yield '4'
+			// }
+			//  let obj1 = {}
+			//  // obj1[Symbol.iterator] = it()
+			//  // console.log(obj1);
+			 
+			 
+			//  const proto1 = Object.getPrototypeOf(obj1)
+			//  proto1[Symbol.iterator] = it;
+			//  console.log(obj1);
+			
+			
+			
+			//迭代遍历生成器对象
+			let obj1 = {
+				name:"张脉",
+				age:"18",
+				sex:"Male"
+			}
+			
+			
+			function * it (){
+				const keys = Object.keys(this)
+				for(let k of keys){
+					yield k
+				}
+			}
+			
+			obj1[Symbol.iterator] = it
+			
+			for(let k of obj1) {
+				console.log(k);
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

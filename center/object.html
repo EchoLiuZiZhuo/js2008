@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>引用数据类型object</title>
+</head>
+<body>
+	<script type="text/javascript">
+		<!-- 使用new操作符后跟object构造函数 -->
+		var person = new Object();
+		person.name = '张脉';
+		person.age = 29;
+		
+		// 对象字面量表示法
+		var person = {
+			name:'张脉';
+			age: 18;
+		}
+		
+		
+		// 使用对象字面量语法时  属性名也可以使用字符串
+		var person = {
+			"name" = "张脉";
+			"age" = 29;
+			5: true;
+		}
+		
+	</script>
+</body>
+</html>
